@@ -95,6 +95,4 @@ Send your completed app to your Project Manager.
 ### Challenge
 This was a big one... Take a well deserved break!  
 
-When the user has correctly guessed the number, allow them to reset and allow the user to try again.
-
 Again, experiment with attributes of your textViews and other GUI components to improve the look of your app.
