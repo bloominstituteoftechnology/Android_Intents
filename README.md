@@ -63,7 +63,8 @@ This will encompass many of the skills you have developed over the Intro to Andr
 ### Part 9 - Retreive the Object from the Intent
 
 1. Use `getIntent()` to get the intent used to launch this activity.
-2. Use the `intent.getSerializableExtra()` method to retreive the serialized data and then cast it to `ImageData` .
+2. Use the `intent.getSerializableExtra()` method to retreive the serialized data and then cast it to `ImageData`.
+  * the final line of code should look something like this `myObject = (ImageData)intent.getSerializableExtra("KEY")`  
 
 ### Part 10 - Display object
 
