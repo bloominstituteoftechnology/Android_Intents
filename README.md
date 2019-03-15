@@ -75,6 +75,8 @@ This will encompass many of the skills you have developed over the Intro to Andr
 
 1. Thoroughly test these two activities before moving on.
 
+
+## Challenge (Optional)
 ### Part 12 - Build Fullscreen Layout
 
 1. Add an activity
@@ -92,8 +94,3 @@ This will encompass many of the skills you have developed over the Intro to Andr
 	  
 ### Submit
 Send your completed app to your Project Manager.
-
-### Challenge
-This was a big one... Take a well deserved break!  
-
-Again, experiment with attributes of your textViews and other GUI components to improve the look of your app.
