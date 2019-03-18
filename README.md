@@ -24,7 +24,7 @@ This will encompass many of the skills you have developed over the Intro to Andr
 1. Create a class to store desired data from retreived image.
 > The only required data is a name and a `Uri` stored as a String.
 > Convert a `Uri` to a string with `.toString()` method and back with `Uri.parse(stringUri)`.  
-2. Class must contain the keywords `implements serializable` in the class signature
+2. Class must contain the keywords `implements Serializable` in the class signature
 > This provides the necessary methods to the `Intent.putExtra` method can store the class's data  
 3. Make all the data members private and create getters and setters for them
 > The `Uri` setter should convert the `Uri` to a `String` and the getter should convert it back.
