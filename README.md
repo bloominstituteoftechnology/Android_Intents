@@ -1,4 +1,4 @@
-# Android_Intents
+# Android Intents
 
 ### Requirements
 For this project, you will be creating a multi page app. The first page will allow the user to import images and list them by name. The second will allow the user to view and edit details of a single image (these are details that you choose and do not need to be permanent). The third will allow the user to view the selected image in full screen.  
