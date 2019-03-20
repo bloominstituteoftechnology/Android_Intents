@@ -37,7 +37,7 @@ We'll give you a few tips on how to proceed.
 1. Add a `TextView` to your layout file (activity_main.xml).
 2. Manipulate its attributes until you find a design that you like.
 3. Write a method that will create a `TextView` object and add those attributes to it programmatically.
-4. The method must accept a `String` to be the view's text attribute and an `int` which is the index where the element is stored in the `List`.
+4. The method must accept a `String` to be the view's text attribute and an `int` which is the index where the element is stored in the list.
 5. Return the `TextView` from the method.
 6. To add the `TextView` to the UI, pass it to your `ScrollView`'s `LinearLayout` child's `.addView()` method.  
 
@@ -54,7 +54,7 @@ We'll give you a few tips on how to proceed.
 
 ### Part 7 - Add a ClickListener to the items in the list
 
-1. In your `TextView` generator give the `TextView` object a listener that will get the tag from the element, use that to pull the `ImageData` object from the `List`.
+1. In your `TextView` generator give the `TextView` object a listener that will get the tag from the element, use that to pull the `ImageData` object from the `ArrayList`.
 2. Use `intent.putExtra()` to add the object to the intent.
 
 ### Part 8 - Build the layout for the details activity
