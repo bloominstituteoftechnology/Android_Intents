@@ -202,4 +202,10 @@ public class FullscreenActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i("ActivityLifecycle",getLocalClassName() +  " - onDestroy");
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onBackPressed");
+    }
 }
