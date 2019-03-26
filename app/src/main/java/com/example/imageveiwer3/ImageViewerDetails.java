@@ -1,5 +1,6 @@
 package com.example.imageveiwer3;
 
+        import android.content.Context;
         import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -10,6 +11,8 @@ package com.example.imageveiwer3;
 
 public class ImageViewerDetails extends AppCompatActivity {
 
+    Context context = this;
+
 
 
     @Override
@@ -19,18 +22,29 @@ public class ImageViewerDetails extends AppCompatActivity {
 
         TextView imageDetails = findViewById(R.id.details_of_image);
         ImageView receivedImage = findViewById(R.id.received_image);
-        receivedImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent fullScreenImage = new Intent(Intent.)
-            }
-        });
+
+
+
 
         Intent getImage = getIntent();
-        ImageViewerModel imageViewerModel = (ImageViewerModel) getImage.getSerializableExtra("sentImage");
+        final ImageViewerModel imageViewerModel = (ImageViewerModel) getImage.getSerializableExtra("sentImage");
         receivedImage.setImageURI(imageViewerModel.getPictureUri());
 
         imageDetails.setText(imageViewerModel.getName());
+
+        receivedImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent sentImage = new  Intent(context,FullscreenActivity.class);
+                sentImage.putExtra("sentImage",imageViewerModel);
+                startActivity(sentImage);
+
+
+            }
+        });
+
+
 
 
 
