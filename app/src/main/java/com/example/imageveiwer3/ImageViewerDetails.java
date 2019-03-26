@@ -27,7 +27,7 @@ public class ImageViewerDetails extends AppCompatActivity {
 
 
         Intent getImage = getIntent();
-        final ImageViewerModel imageViewerModel = (ImageViewerModel) getImage.getSerializableExtra("sentImage");
+        final ImageViewerModel imageViewerModel = (ImageViewerModel) getImage.getSerializableExtra(MainActivity.KEY_IMAGE);
         receivedImage.setImageURI(imageViewerModel.getPictureUri());
 
         imageDetails.setText(imageViewerModel.getName());
@@ -37,7 +37,7 @@ public class ImageViewerDetails extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent sentImage = new  Intent(context,FullscreenActivity.class);
-                sentImage.putExtra("sentImage",imageViewerModel);
+                sentImage.putExtra(MainActivity.KEY_IMAGE,imageViewerModel);
                 startActivity(sentImage);
 
 
