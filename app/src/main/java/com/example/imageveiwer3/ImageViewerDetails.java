@@ -4,6 +4,7 @@ package com.example.imageveiwer3;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
         import android.util.Log;
+        import android.view.View;
         import android.widget.ImageView;
         import android.widget.TextView;
 
@@ -18,6 +19,12 @@ public class ImageViewerDetails extends AppCompatActivity {
 
         TextView imageDetails = findViewById(R.id.details_of_image);
         ImageView receivedImage = findViewById(R.id.received_image);
+        receivedImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent fullScreenImage = new Intent(Intent.)
+            }
+        });
 
         Intent getImage = getIntent();
         ImageViewerModel imageViewerModel = (ImageViewerModel) getImage.getSerializableExtra("sentImage");
