@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_below="@id/received_image"
         android:textSize="30dp"
-        android:text="info"
+
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
