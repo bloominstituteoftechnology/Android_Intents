@@ -3,6 +3,7 @@ package com.example.imageveiwer3;
         import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.util.Log;
         import android.widget.ImageView;
         import android.widget.TextView;
 
@@ -26,5 +27,37 @@ public class ImageViewerDetails extends AppCompatActivity {
 
 
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onStart");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("ActivityLifecycle",getLocalClassName() +  " - onDestroy");
     }
 }
