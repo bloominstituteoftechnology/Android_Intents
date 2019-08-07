@@ -9,6 +9,7 @@
         android:orientation="vertical">
 
     <ScrollView
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -18,15 +19,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-            <Button
-                    android:id="@+id/button_add"
-                    android:text="Add"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
 
         </LinearLayout>
-
-
     </ScrollView>
+    <Button
+            android:id="@+id/button_add"
+            android:text="Add"
+            android:textSize="24dp"
+            android:background="@android:color/holo_orange_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 </LinearLayout>
