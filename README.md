@@ -21,10 +21,10 @@ This will encompass many of the skills you have developed over the Intro to Andr
 
 ### Part 3 - Create an ImageData Class
 
-1. Create a class to store desired data from retreived image.
+1. Create a class to store desired data from a retreived image.
 > The only required data is a name and a `Uri` stored as a String.
 > Convert a `Uri` to a string with `.toString()` method and back with `Uri.parse(stringUri)`.  
-2. Class must contain the keywords `implements Serializable` in the class signature
+2. Class must contain `: Serializable` at the end of the class signature
 > This provides the necessary methods to the `Intent.putExtra` method can store the class's data  
 3. Make all the data members private and create getters and setters for them
 > The `Uri` setter should convert the `Uri` to a `String` and the getter should convert it back.
@@ -38,6 +38,7 @@ This will encompass many of the skills you have developed over the Intro to Andr
 4. The method must accept a `String` to be the view's text attribute and an `int` which is the index where the element is stored in the `List`.
 5. Return the `TextView` from the method.
 6. To add the `TextView` to the ui, pass it to your `ScrollView`'s `LinearLayout` child's `.addView()` method.  
+> Look at the code in this file for a reminder on how to do this. https://github.com/ChancePayne/MattsList/blob/master/app/src/main/java/com/lambdaschool/mattslist/MainActivity.kt
 
 ### Part 5 - Create an Intent to Get an Image
 
@@ -64,7 +65,7 @@ This will encompass many of the skills you have developed over the Intro to Andr
 
 1. Use `getIntent()` to get the intent used to launch this activity.
 2. Use the `intent.getSerializableExtra()` method to retreive the serialized data and then cast it to `ImageData`.
-  * the final line of code should look something like this `myObject = (ImageData)intent.getSerializableExtra("KEY")`  
+  * the final line of code should look something like this `val myObject = intent.getSerializableExtra("KEY") as ImageData`  
 
 ### Part 10 - Display object
 
