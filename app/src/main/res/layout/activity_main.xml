@@ -12,6 +12,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+        <LinearLayout
+                android:id="@+id/scroll_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <Button
+                    android:id="@+id/button_add"
+                    android:text="Add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
 
     </ScrollView>
 
