@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         displayText.text = text
         displayText.textSize = 32f
         displayText.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        displayText.setOnClickListener{
+            val intent = Intent(this, DetailsActivity::class.java)
+            intent.putExtra("idk",text)
+        }
 
         return displayText
 
