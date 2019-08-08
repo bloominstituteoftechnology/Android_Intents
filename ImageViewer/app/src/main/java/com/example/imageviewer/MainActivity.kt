@@ -20,8 +20,8 @@ import java.io.Serializable
 class MainActivity : AppCompatActivity() {
     // This array is needed to help create the UI of Images and data
     private var imageAndDataList: ArrayList<ImageData> = ArrayList()
-    // This array is going to hold the TextViews for the UI
-    private var imageNames: ArrayList<TextView> = ArrayList()
+    var imageDataIndex = 0
+    var buttonIndex = 0
 
     companion object{
         val IMAGE_REQUEST_CODE = 3
@@ -36,13 +36,18 @@ class MainActivity : AppCompatActivity() {
 //    android:paddingLeft="2dp"
 //    />
 
-    private fun addTextToList(text: String/*, listIndex: Int*/): TextView {
+    private fun addTextToList(text: String, listIndex: Int): TextView {
         val aTextView = TextView(this)
         aTextView.width = MATCH_PARENT
-        aTextView.height = WRAP_CONTENT
+        aTextView.height = 100
         aTextView.text = text
         aTextView.textSize = 16f
-        imageNames.add(aTextView)
+
+        aTextView.setOnClickListener {
+            val intent = Intent(this, DetailsActivity::class.java)
+            intent.putExtra(imageAndDataList[imageDataIndex-1].imageUri, imageDataIndex - 1)
+            startActivity(intent)
+        }
         return aTextView
     }
 
@@ -53,21 +58,17 @@ class MainActivity : AppCompatActivity() {
 //    android:adjustViewBounds="false"
 //    />
 
-    private fun addImageToList(image: Bitmap): ImageView {
-        val view = ImageView(this)
-        view.setImageBitmap(image)
-        view.scaleType = ImageView.ScaleType.CENTER_CROP
-        view.adjustViewBounds = false
-        view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, 160)
-        imageAndDataList.add(ImageData(image))
-
-        view.setOnClickListener {
-            val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra(this, image)
-            startActivity(intent)
-        }
-        return view
-    }
+//    private fun addImageToList(image: Bitmap): ImageView {
+//        val view = ImageView(this)
+//        view.setImageBitmap(image)
+//        view.scaleType = ImageView.ScaleType.CENTER_CROP
+//        view.adjustViewBounds = false
+//        view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, 160)
+//        imageAndDataList.add(ImageData(image))
+//
+//
+//        return view
+//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,13 +92,19 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
             val imageInformation = data?.data
             if(imageInformation != null) {
-                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageInformation)
-                scroll_list.addView(addImageToList(bitmap))
-                scroll_list.addView(addTextToList("What I want"))
-                imageAndDataList.add(ImageData(imageInformation))
+//                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageInformation)
+//                scroll_list.addView(addImageToList(bitmap))
+                scroll_list.addView(addTextToList(ImageData(imageInformation).imageUri, buttonIndex++))
+                imageAndDataList.add(imageDataIndex++, ImageData(imageInformation))
+
+                //imageAndDataList.add(ImageData(imageInformation))
             }
                 //.setImageBitmap(BitmapFactory.decodeFile(imageInformation))
+
         }
+
+
+
         super.onActivityResult(requestCode, resultCode, data)
     }
 }
