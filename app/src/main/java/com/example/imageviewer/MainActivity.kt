@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         displayText.textAlignment = View.TEXT_ALIGNMENT_CENTER
         displayText.setOnClickListener{
             val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra("idk",text)
+            intent.putExtra("key", text)
+            startActivity(intent)
         }
 
         return displayText
@@ -49,10 +50,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == IMG_CODE && resultCode == Activity.RESULT_OK){
-            val image = data?.data
-            var imgData = ImageData(image.toString())
-            list.add(imgData.uri)
-            scroll_layout.addView(createTextView(imgData.uri, list.size))
+            val image = data?.data.toString()
+            list.add(image)
+            scroll_layout.addView(createTextView(image, list.size))
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
