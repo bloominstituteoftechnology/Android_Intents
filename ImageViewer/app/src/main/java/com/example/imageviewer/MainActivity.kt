@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
             val imageInformation = data?.data
             if(imageInformation != null) {
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageInformation)
-                //scroll_list.addView(addImageToList(bitmap))
+                scroll_list.addView(addImageToList(bitmap))
                 scroll_list.addView(addTextToList("What I want"))
             }
                 //.setImageBitmap(BitmapFactory.decodeFile(imageInformation))
