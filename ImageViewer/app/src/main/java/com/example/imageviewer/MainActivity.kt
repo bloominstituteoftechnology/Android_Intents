@@ -14,6 +14,7 @@ import android.provider.MediaStore
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.FrameLayout
+import java.io.Serializable
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,13 @@ class MainActivity : AppCompatActivity() {
         view.scaleType = ImageView.ScaleType.CENTER_CROP
         view.adjustViewBounds = false
         view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, 160)
+        imageAndDataList.add(ImageData(image))
+
+        view.setOnClickListener {
+            val intent = Intent(this, DetailsActivity::class.java)
+            intent.putExtra(this, image)
+            startActivity(intent)
+        }
         return view
     }
 
@@ -86,6 +94,7 @@ class MainActivity : AppCompatActivity() {
                 val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageInformation)
                 scroll_list.addView(addImageToList(bitmap))
                 scroll_list.addView(addTextToList("What I want"))
+                imageAndDataList.add(ImageData(imageInformation))
             }
                 //.setImageBitmap(BitmapFactory.decodeFile(imageInformation))
         }
