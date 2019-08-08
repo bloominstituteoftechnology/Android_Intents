@@ -2,9 +2,6 @@ package com.example.imageviewer
 
 import android.app.Activity
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,14 +14,16 @@ class MainActivity : AppCompatActivity() {
         public val IMG_CODE = 6
     }
 
-    fun createTextView(text: String, index: Int): TextView {
+    val list = ArrayList<ImageData>()
+
+    fun createTextView(text: String?, index: Int): TextView {
         val displayText = TextView(this)
         displayText.text = text
         displayText.textSize = 32f
         displayText.textAlignment = View.TEXT_ALIGNMENT_CENTER
         displayText.setOnClickListener{
             val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra("key", text)
+            intent.putExtra("key", list[index])
             startActivity(intent)
         }
 
@@ -46,13 +45,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val list = ArrayList<String>()
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == IMG_CODE && resultCode == Activity.RESULT_OK){
-            val image = data?.data.toString()
-            list.add(image)
-            scroll_layout.addView(createTextView(image, list.size))
+            val image = data?.data
+            list.add(ImageData(image))
+            println(image)
+            scroll_layout.addView(createTextView(ImageData(image).setUriPath(image), list.size - 1))
         }
         super.onActivityResult(requestCode, resultCode, data)
     }

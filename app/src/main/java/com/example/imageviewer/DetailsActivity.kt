@@ -15,10 +15,11 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        val location = intent.getStringExtra("key")
-        val imgUri = Uri.parse(location)
+        val location = intent.getSerializableExtra("key") as ImageData
+        println()
+        /*val imgUri = Uri.parse(location)
         text_main.setText("Uri: $location")
-        img_main.setImageURI(imgUri)
+        img_main.setImageURI(imgUri)*/
 
 
     }
