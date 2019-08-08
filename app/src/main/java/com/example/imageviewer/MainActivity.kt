@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             val image = data?.data
             list.add(ImageData(image))
             println(image)
-            scroll_layout.addView(createTextView(ImageData(image).setUriPath(image), list.size - 1))
+            scroll_layout.addView(createTextView(ImageData(image).uriToString, list.size - 1))
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
