@@ -25,16 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         val IMAGE_REQUEST_CODE = 3
+        val STRING_REQUEST_CODE = "REQUEST_CODE"
     }
 
-
-//    <TextView
-//    android:layout_width="match_parent"
-//    android:layout_height="wrap_content"
-//    android:text="Beautiful Ocean"
-//    android:textSize="18dp"
-//    android:paddingLeft="2dp"
-//    />
 
     private fun addTextToList(text: String, listIndex: Int): TextView {
         val aTextView = TextView(this)
@@ -45,30 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         aTextView.setOnClickListener {
             val intent = Intent(this, DetailsActivity::class.java)
-            intent.putExtra(imageAndDataList[imageDataIndex-1].imageUri, imageDataIndex - 1)
+            intent.putExtra(STRING_REQUEST_CODE, imageAndDataList[imageDataIndex-1].imageUri)
             startActivity(intent)
         }
         return aTextView
     }
-
-//    <ImageView
-//    android:layout_width="match_parent"
-//    android:layout_height="80dp"
-//    android:scaleType="centerCrop"
-//    android:adjustViewBounds="false"
-//    />
-
-//    private fun addImageToList(image: Bitmap): ImageView {
-//        val view = ImageView(this)
-//        view.setImageBitmap(image)
-//        view.scaleType = ImageView.ScaleType.CENTER_CROP
-//        view.adjustViewBounds = false
-//        view.layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, 160)
-//        imageAndDataList.add(ImageData(image))
-//
-//
-//        return view
-//    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,19 +66,11 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == Activity.RESULT_OK){
             val imageInformation = data?.data
             if(imageInformation != null) {
-//                val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageInformation)
-//                scroll_list.addView(addImageToList(bitmap))
                 scroll_list.addView(addTextToList(ImageData(imageInformation).imageUri, buttonIndex++))
                 imageAndDataList.add(imageDataIndex++, ImageData(imageInformation))
-
-                //imageAndDataList.add(ImageData(imageInformation))
+                imageAndDataList[0].yeah
             }
-                //.setImageBitmap(BitmapFactory.decodeFile(imageInformation))
-
         }
-
-
-
         super.onActivityResult(requestCode, resultCode, data)
     }
 }
