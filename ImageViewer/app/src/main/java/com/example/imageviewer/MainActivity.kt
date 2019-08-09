@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
             if(imageInformation != null) {
                 scroll_list.addView(addTextToList(ImageData(imageInformation).imageUri, buttonIndex++))
                 imageAndDataList.add(imageDataIndex++, ImageData(imageInformation))
-                imageAndDataList[0].yeah
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
