@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Image Viewer</string>
+    <string name="add_picture">Add Picture</string>
+</resources>
